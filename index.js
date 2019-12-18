@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 const fi = (function () {
   return {
@@ -135,3 +136,67 @@ const fi = (function () {
 })()
 
 fi.libraryMethod()
+=======
+const fi = (function() {
+    return {
+      libraryMethod: function() {
+        return 'Start by reading https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0'
+      },
+  
+      each: function(collection, callback) {
+          let collectionArray;
+          if(collection instanceof Array){
+              collectionArray=collection.slice()
+          }else{collectionArray=Object.values(collection)}
+          for(let i=0;i<collectionArray.length;i++){
+              callback(collectionArray[i])
+          }
+          return collection ;
+      },
+  
+      map: function(collection, callback) {
+        let collectionArray;
+        let newCollection=[];
+        if(collection instanceof Array){
+            collectionArray=collection
+        }else{collectionArray=Object.values(collection)}
+        for(let i=0;i<collectionArray.length;i++){
+            newCollection[i]=callback(collectionArray[i])
+        }
+        return newCollection ;
+      },
+  reduce: function (collection, callback, acc) {
+            let collectionArray;
+            if (collection.isArray()) {
+                collectionArray = collection
+            } else { collectionArray = Object.values(collection) }
+
+            if (!acc) {
+                acc = 0;    
+            } 
+            for (let i = 0; i < collectionArray.length; i++) {
+                    acc = acc + callback(collectionArray[i])
+            }
+             return acc ;
+         },
+
+  
+      functions: function(collection, predicate) {
+        let collectionArray;
+        if(collection.isArray()){
+            collectionArray=collection
+        }else{collectionArray=Object.values(collection)}
+        for(let i=0;i<collectionArray.length;i++){
+            if(predicate===collectionArray[i]){
+                return collectionArray[i]
+            }else{ return undefined }
+        }
+      },
+  
+  
+    }
+  })()
+  
+  fi.libraryMethod()
+  
+>>>>>>> 8a09f8067fd5f7902aae99cbcaa1c2bf79bd299c
